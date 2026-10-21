@@ -105,6 +105,7 @@ const LIMIT_PROVIDER_ACCOUNT_NODES = {
   thirdparty: { group: 'thirdpartyAccountGroup', status: 'thirdpartyStatus' }
 };
 const LIMIT_PROVIDER_CONNECTION_DETAIL_KEYS = {
+  byteplus: 'settings.limits.connection.byteplus',
   antigravity: 'settings.limits.connection.antigravity',
   cline: 'settings.limits.connection.cline',
   grok: 'settings.limits.connection.grok',

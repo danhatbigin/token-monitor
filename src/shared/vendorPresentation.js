@@ -89,6 +89,7 @@
     { id: 'doubao', label: 'Doubao', color: '#1E37FC', widgetColor: '#5064FF' },
     { id: 'hunyuan', label: 'Hunyuan', color: '#0053E0', widgetColor: '#277DE3' },
     { id: 'volcengine', label: 'Volcengine', color: '#006EFF', widgetColor: '#2A88FF' },
+    { id: 'byteplus', label: 'BytePlus Coding Plan', color: '#006EFF', icon: 'volcengine', widgetColor: '#2A88FF' },
     { id: 'ollama', label: 'Ollama', color: '#888888', widgetInk: true },
     { id: 'trae', label: 'Trae CN', color: '#32F08C' },
     { id: 'alibaba', label: 'Alibaba Cloud', color: '#615CED', widgetColor: '#7771F4' },

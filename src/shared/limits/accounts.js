@@ -116,6 +116,7 @@ const LIMIT_PROVIDER_ACCOUNTS = Object.freeze([
   registerProvider(require('../providers/typesafe/account'), () => require('../providers/typesafe/limits')),
   registerProvider(require('../providers/openrouter/account'), () => require('../providers/openrouter/limits')),
   registerProvider(require('../providers/volcengine/account'), () => require('../providers/volcengine/limits')),
+  registerProvider(require('../providers/byteplus/account'), () => require('../providers/byteplus/limits')),
   registerProvider(require('../providers/ollama/account'), () => require('../providers/ollama/limits')),
   registerProvider(require('../providers/trae/account'), () => require('../providers/trae/limits')),
   registerProvider(require('../providers/alibaba/account'), () => require('../providers/alibaba/limits')),

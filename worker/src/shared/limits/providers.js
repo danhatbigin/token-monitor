@@ -60,6 +60,7 @@
     { id: 'typesafe', label: 'TypeSafe' },
     { id: 'openrouter', label: 'OpenRouter' },
     { id: 'volcengine', label: 'Volcengine' },
+    { id: 'byteplus', label: 'BytePlus Coding Plan' },
     { id: 'ollama', label: 'Ollama' },
     { id: 'trae', label: 'Trae CN' },
     { id: 'alibaba', label: 'Alibaba Cloud' },

@@ -53,6 +53,7 @@ test('default provider order follows tracked tools, named services, then third-p
     'typesafe',
     'openrouter',
     'volcengine',
+    'byteplus',
     'ollama',
     'trae',
     'alibaba',

@@ -27,7 +27,7 @@ function probeError(status = 'unavailable') {
 
 // npm's launcher uses execFileSync and does not forward cancellation. Prefer
 // its installed native executable, also avoiding .cmd shell shims on Windows.
-function resolveArkcliCommand(env, platform = process.platform, arch = process.arch) {
+function resolveArkcliCommand(env, platform = process.platform, arch = process.arch, packageScope = '@volcengine') {
   const command = env.TOKEN_MONITOR_ARKCLI_COMMAND || 'arkcli';
   const pathApi = pathApiForPlatform(platform);
   const suffixes = platform === 'win32' ? ['', '.exe', '.cmd'] : [''];
@@ -60,7 +60,7 @@ function resolveArkcliCommand(env, platform = process.platform, arch = process.a
     try {
       const real = fs.realpathSync(candidate);
       const roots = [pathApi.resolve(pathApi.dirname(real), '..'),
-        pathApi.join(pathApi.dirname(candidate), 'node_modules', '@volcengine', 'ark-cli')];
+        pathApi.join(pathApi.dirname(candidate), 'node_modules', packageScope, 'ark-cli')];
       for (const root of uniqueStrings(roots)) {
         if (pathApi.basename(root) !== 'ark-cli') continue;
         const binary = pathApi.join(root, 'bin', `arkcli-${targetPlatform}-${targetArch}${platform === 'win32' ? '.exe' : ''}`);
@@ -99,7 +99,7 @@ function runArkcli(args, deps = {}) {
     const onAbort = () => cancel(abortError(signal));
     let child;
     try {
-      child = (deps.spawn || spawn)(resolveArkcliCommand(env), args, {
+      child = (deps.spawn || spawn)(resolveArkcliCommand(env, process.platform, process.arch, deps.arkcliPackageScope), args, {
         shell: false,
         windowsHide: true,
         stdio: ['ignore', 'pipe', 'ignore'],
