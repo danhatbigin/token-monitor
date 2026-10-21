@@ -46,7 +46,7 @@ function deviceRecordFromAnchor(saved, options = {}) {
   // archive projection is evaluated at, so a snapshot of unknown age must not
   // be presented as one taken now.
   if (trust.capturedAtMs === null) return null;
-  // The anchor keeps host periods and the WSL bundle apart, the way
+  // The anchor keeps primary periods and the additive WSL bundle apart, the way
   // collectUsageOnce does before summing them. Same local day is established
   // above, so all three windows are safe to merge.
   const wsl = wslScanEnabled !== false ? saved.wslBundle : null;
@@ -78,6 +78,7 @@ function deviceRecordFromAnchor(saved, options = {}) {
     // attribution panel. Leaving them off makes the seed a record that looks
     // subtly unlike the one replacing it.
     projectsEnabled,
+    ...(options.claudeRemoteMirrorsExcluded ? { excludedSessionKeys: saved.excludedSessionKeys || [] } : {}),
     ...(wslStatus ? { wslStatus } : {}),
     // Required, not decorative. Without them aggregateDevices falls back to
     // comparing UTC days, and anywhere ahead of UTC a local day that has not
